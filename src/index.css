@@ -1,0 +1,549 @@
+html {
+  font-family: system-ui, sans-serif;
+  font-size: 1.25rem;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container-fluid {
+  margin-top: 50px;
+}
+
+.leaflet-container {
+  background: #f8f9fa;
+}
+
+* {
+  outline: none !important;
+}
+
+.mapio {
+  font-size: 10px;
+  font-variant: all-small-caps;
+  position: absolute;
+  left: 66px;
+  top: 32px;
+}
+
+.controls {
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  background: #f8f9faf0;
+  padding: 10px;
+  z-index: 403;
+  box-shadow: 0px 0px 5px #999;
+  overflow: scroll;
+  max-height: calc(66% - 20px);
+  width: 260px;
+}
+
+@media only screen and (max-height: 500px) {
+  .controls {
+    overflow: scroll;
+    max-height: calc(100% - 20px);
+  }
+
+  .timeline {
+    position: absolute;
+    top: 10px !important;
+    right: 10px !important;
+    bottom: auto !important;
+    left: auto !important;
+    background: #f8f9faf0;
+    padding: 10px;
+    padding-top: 5px;
+    z-index: 401;
+    box-shadow: 0px 0px 5px #999;
+    text-align: center;
+  }
+
+  .leaderboard {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .leaderboard {
+    top: auto !important;
+    right: auto !important;
+    bottom: 0px !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 33%;
+  }
+
+  .timeline {
+    top: 10px !important;
+    right: 10px !important;
+    bottom: auto !important;
+  }
+}
+
+.navbar {
+  /*box-shadow: 0px 0px 10px #333;*/
+  box-shadow: 0px 0px 5px #999;
+}
+
+.controls.minimized, .timeline.minimized {
+  width: 100px;
+  height: 24px;
+  border-radius: 3px;
+  padding: 0px;
+  z-index: 403;
+  box-shadow: 0px 0px 5px #999;
+  text-align: center;
+}
+
+.controls.minimized .btn-collapse, .timeline.minimized .btn-collapse {
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  padding-top: auto !important;
+  margin-left: -30px;
+  padding: 3px !important;
+  width: auto !important;
+  text-align: center;
+  font-size: 14px !important;
+  font-variant: small-caps;
+  line-height: normal !important;
+  height: auto !important;
+}
+
+.timeline.minimized .btn-collapse {
+  margin-left: -28px;
+}
+
+.timeline {
+  position: absolute;
+  bottom: 10px;
+  right: 414px;
+  background: #f8f9faf0;
+  padding: 10px;
+  padding-top: 5px;
+  z-index: 401;
+  box-shadow: 0px 0px 5px #999;
+  text-align: left;
+}
+
+.showInMomentum {
+  display: none;
+}
+
+.btn-collapse {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  height: 12px !important;
+  outline: none !important;
+  cursor: pointer;
+  color: #337ab7 !important;
+  background: none;
+  border: none;
+}
+
+.btn-collapse:hover {
+  color: #000 !important;
+}
+
+.leftTime, .midTime, .todayTime, .play, .stop, .pause {
+  margin-left: 5px;
+}
+
+#leaflet-map, .leaflet-container {
+  width: 100%!important;
+  height: 100%!important;
+}
+
+.credits {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.credits .badge {
+  font-size: 10px;
+  font-weight: 300 !important;
+}
+
+.stayAtHomeScore {
+  margin-top:3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  color: #999;
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.stayAtHomeScore0 {
+  background: #a50026;
+  border: none;
+  color: white;
+}
+
+.stayAtHomeScore1 {
+  background: #d73027;
+  border: none;
+  color: white;
+}
+
+.stayAtHomeScore2 {
+  background: #f46d43;
+  border: none;
+  color: white;
+}
+
+.stayAtHomeScore3 {
+  background: #fdae61;
+  color: black;
+  border: none;
+}
+
+.stayAtHomeScore4 {
+  background: #fee08b;
+  color: black;
+  border: none;
+}
+
+.stayAtHomeScore5 {
+  background: #ffffbf;
+  color: black;
+  border: none;
+}
+
+.stayAtHomeScore6 {
+  background: #d9ef8b;
+  color: black;
+  border: none;
+}
+
+.stayAtHomeScore7 {
+  background: #a6d96a;
+  color: black;
+  border: none;
+}
+
+.stayAtHomeScore8 {
+  background: #66bd63;
+  color: white;
+  border: none;
+}
+
+.stayAtHomeScore9 {
+  background: #1a9850;
+  color: white;
+  border: none;
+}
+
+.stayAtHomeScore10 {
+  background: #006837;
+  color: white;
+  border: none;
+}
+
+.stayAtHomeScoreLabel {
+  font-size: 10px;
+  margin-top: 3px;
+  text-align: justify;
+  max-width: 300px;
+  heigth: 30px;
+  padding: 3px;
+}
+
+.stayAtHomeAdvice {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+.slider-horizontal {
+  margin-left: 4px;
+}
+
+.slider-tick-label {
+  font-size: 12px;
+}
+
+.tiny {
+  float: left;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  height: auto !important;
+}
+
+.leaderboard {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  right: 0px;
+  background: #f8f9faf0;
+  padding: 0px;
+  z-index: 402;
+  box-shadow: 0px 0px 5px #999;
+  overflow: scroll;
+  max-height: 100%;
+  width: 380px;
+  font-size: 10px;
+}
+
+.containmentScore {
+  cursor: pointer;
+  width: 32px;
+  height: 16px;
+  border-radius: 3px;
+  background: white;
+  color: #999;
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 16px;
+  font-weight: bold;
+  font-size: 10px !important;
+}
+
+.containmentScore0 {
+  background: #a50026;
+  border: none;
+  color: white;
+}
+
+.containmentScore1 {
+  background: #d73027;
+  border: none;
+  color: white;
+}
+
+.containmentScore2 {
+  background: #f46d43;
+  border: none;
+  color: white;
+}
+
+.containmentScore3 {
+  background: #fdae61;
+  color: black;
+  border: none;
+}
+
+.containmentScore4 {
+  background: #fee08b;
+  color: black;
+  border: none;
+}
+
+.containmentScore5 {
+  background: #ffffbf;
+  color: black;
+  border: none;
+}
+
+.containmentScore6 {
+  background: #d9ef8b;
+  color: black;
+  border: none;
+}
+
+.containmentScore7 {
+  background: #a6d96a;
+  color: black;
+  border: none;
+}
+
+.containmentScore8 {
+  background: #66bd63;
+  color: white;
+  border: none;
+}
+
+.containmentScore9 {
+  background: #1a9850;
+  color: white;
+  border: none;
+}
+
+.containmentScore10 {
+  background: #006837;
+  color: white;
+  border: none;
+}
+
+.locationSelect {
+  cursor: pointer;
+}
+
+.locationSelect:HOVER {
+  background: #fff;
+}
+
+.locationSelect:HOVER td {
+  opacity: 0.75;
+}
+
+.locationSelect:HOVER .country {
+  color: black;
+  text-decoration: underline;
+}
+
+.mono {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 10px;
+}
+
+.stat {
+  width: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 10px;
+}
+
+.valign-top {
+  vertical-align: top;
+}
+
+.sortHeader {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+g.todayMarker {
+  fill: #ccc;
+}
+
+g.confirmedProjectedBar {
+  fill: #0000FF;
+}
+
+g.confirmedBar {
+  fill: #FF000099;
+}
+
+g.recoveredBar {
+  fill: #00FF0099;
+}
+
+g.deceasedBar {
+  fill: #000000cc;
+}
+
+.centered {
+  text-align: center;
+}
+
+.line {
+  fill: none;
+}
+
+.line0 {
+  stroke: #a6cee3;
+}
+
+.line1 {
+  stroke: #1f78b4;
+}
+
+.line2 {
+  stroke: #b2df8a;
+}
+
+.line3 {
+  stroke: #33a02c
+}
+
+.line4 {
+  stroke: #fb9a99;
+}
+
+.line5 {
+  stroke: #e31a1c;
+}
+
+.line6 {
+  stroke: #fdbf6f;
+}
+
+.line7 {
+  stroke: #ff7f00;
+}
+
+.line8 {
+  stroke: #cab2d6;
+}
+
+.line9 {
+  stroke: #000;
+}
+
+.legend {
+  font-size: 10px;
+  stroke: none;
+}
+
+.legend0 {
+  fill: #a6cee3;
+}
+
+.legend1 {
+  fill: #1f78b4;
+}
+
+.legend2 {
+  fill: #b2df8a;
+}
+
+.legend3 {
+  fill: #33a02c
+}
+
+.legend4 {
+  fill: #fb9a99;
+}
+
+.legend5 {
+  fill: #e31a1c;
+}
+
+.legend6 {
+  fill: #fdbf6f;
+}
+
+.legend7 {
+  fill: #ff7f00;
+}
+
+.legend8 {
+  fill: #cab2d6;
+}
+
+.legend9 {
+  fill: #000;
+}
+
+g.todayMarkerLineChart {
+  fill: #333333ee;
+}
+
+
+div.leaflet-pane.leaflet-tooltip-pane * {
+  z-index: 1002 !important;
+}
+
+
+.markerTooltip, .deceasedLayer {
+  z-index: 1002 !important;
+}
