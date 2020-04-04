@@ -20,7 +20,7 @@ Please check it out, and hopefully it helps to drive more ideas and to provide a
 
 
 ## Users
-Visit https://github.com/pranoybasu/coronavirus19stats
+Visit https://coronavirus19stats.web.app/
 
 ## Developers
 ### Install and run
